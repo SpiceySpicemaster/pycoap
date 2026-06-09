@@ -1,5 +1,3 @@
-#!/bin/python3
-
 import subprocess
 import asyncio
 import aiocoap
@@ -55,7 +53,7 @@ async def main():
 	# Define your custom callback function
 	# YOUR FUNCTION ALWAYS HAS TO EXPECT A REFERANCE TO THE INVOKING OBJECT
 	def test_function(payload):
-		result = subprocess.run(f"bash {payload}", shell=True)
+		result = subprocess.run(f"{payload}", shell=True, capture_output=True, text=True)
 
 		print(f"Running {payload}")
 		if result.returncode == 0:
